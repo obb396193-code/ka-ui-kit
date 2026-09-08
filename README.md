@@ -27,7 +27,7 @@ NEXT_PUBLIC_DATA_PROVIDER=mock npx next dev -p 3500
 
 | 目录 | 是什么 | 能不能改 |
 |---|---|---|
-| `docs/` | 三份规范：执行规范、审核清单、组件选型流程 | 读，别改 |
+| `docs/` | 五份文档：执行规范、审核清单、组件选型流程、前端规范与组件复用、数据抓取指南 | 读，别改 |
 | `app/globals.css` | 全套设计 token。三套主题模式 + 状态色 + 字体栈，61 处语义变量 | 只加不删，别硬编码颜色绕过它 |
 | `lib/theme/theme.ts` | 主题状态机 + 18 个预设主色 + 首屏防闪脚本 | 预设色可以换成你的品牌色 |
 | `components/ui/` | 15 个 shadcn 官方件，未改动 | 别改，方便跟官方升级 |
@@ -36,6 +36,8 @@ NEXT_PUBLIC_DATA_PROVIDER=mock npx next dev -p 3500
 | `scripts/fonts/` | MiSans 切片生成（postinstall 自动跑） | 别改 |
 
 字体栈是 `Geist → PingFang SC → MiSans → Microsoft YaHei`。Mac 用苹方零下载，Windows 用 MiSans 兜底。Geist 的 woff2 在 `app/fonts/`，许可证是 SIL OFL 1.1。
+
+第三方源码的来源、许可、取得时间和改动记录都在 `THIRD-PARTY.md`。新增第三方组件时按同样格式登记。
 
 ---
 

@@ -15,7 +15,17 @@ const weights = [
   ["Semibold", "520", "600"],
 ]
 let src
-try { src = join(dirname(require.resolve("misans/package.json")), "lib", "Normal") } catch { console.warn("[fonts] misans 未安装，跳过"); process.exit(0) }
+// app/layout.tsx 无条件 import ./fonts/misans/misans.css，而这个目录是 gitignore 的生成物。
+// 所以缺包时也必须写出一个占位 css，否则 next build 会挂在 Module not found（用
+// npm install --ignore-scripts 或 misans 装失败时都会踩到）。字体栈里 MiSans 只是
+// Windows 兜底，缺它不影响 Mac 苹方，页面照常可用。
+try { src = join(dirname(require.resolve("misans/package.json")), "lib", "Normal") } catch {
+  const outDir = resolve(here, "../../app/fonts/misans")
+  mkdirSync(outDir, { recursive: true })
+  writeFileSync(join(outDir, "misans.css"), "/* 自动生成：misans 未安装，无 Windows 兜底中文字体切片。字体栈其余部分照常生效。 */\n")
+  console.warn("[fonts] misans 未安装，已写占位 misans.css（Windows 中文兜底缺失，不影响构建）")
+  process.exit(0)
+}
 const outDir = resolve(here, "../../app/fonts/misans")
 const filesDir = join(outDir, "files")
 mkdirSync(filesDir, { recursive: true })
