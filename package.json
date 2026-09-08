@@ -1,0 +1,43 @@
+{
+  "name": "ka-ui-kit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "KA Pilot 设计系统启动套件：token + shadcn 官方件 + 表壳/状态壳/主题开关。给同团队做数据看板的项目当起点。",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "postinstall": "node scripts/fonts/prepare-misans.mjs"
+  },
+  "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/modifiers": "^9.0.0",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "@tabler/icons-react": "^3.46.0",
+    "@tanstack/react-table": "^9.1.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.32.0",
+    "misans": "4.1.0",
+    "next": "15.5.23",
+    "radix-ui": "^1.6.7",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "shadcn": "^4.18.0",
+    "tailwind-merge": "^3.6.0",
+    "tw-animate-css": "^1.4.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.23",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

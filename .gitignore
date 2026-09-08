@@ -1,0 +1,12 @@
+node_modules/
+.next/
+out/
+build/
+next-env.d.ts
+*.tsbuildinfo
+
+# postinstall 生成（MiSans 切片），不进仓
+app/fonts/misans/
+
+.DS_Store
+.env*.local
